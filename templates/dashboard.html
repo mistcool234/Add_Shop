@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style_dash.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <a href="/add">Add New TV</a>
+    <table>
+        <tr>
+            <th>Brand</th><th>Model</th><th>Price</th><th>Description</th><th>Action</th>
+        </tr>
+        {% for tv in tvs %}
+        <tr>
+            <td>{{ tv.brand }}</td>
+            <td>{{ tv.model }}</td>
+            <td>${{ tv.price }}</td>
+            <td>{{ tv.description }}</td>
+            <td><a href="/delete/{{ tv.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
